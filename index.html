@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Neon Space Runner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Stars -->
+    <div class="stars"></div>
+    <div class="stars stars2"></div>
+
+    <!-- START SCREEN -->
+    <div id="startScreen" class="screen">
+
+        <div class="glass-card">
+
+            <div class="planet">🌌</div>
+
+            <h1>NEON<br><span>SPACE RUNNER</span></h1>
+
+            <p class="tagline">
+                SURVIVE • DODGE • DESTROY
+            </p>
+
+            <button id="startBtn" class="neon-btn">
+                🚀 START GAME
+            </button>
+
+            <button id="howBtn" class="small-btn">
+                HOW TO PLAY
+            </button>
+
+            <div class="high-score-menu">
+                🏆 High Score:
+                <span id="menuHighScore">0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HOW TO PLAY -->
+    <div id="howScreen" class="screen hidden">
+
+        <div class="glass-card instructions">
+
+            <h2>🎮 HOW TO PLAY</h2>
+
+            <p>🚀 Move your spaceship and survive.</p>
+            <p>☄️ Avoid incoming asteroids.</p>
+            <p>⚡ Collect energy coins.</p>
+            <p>🔫 Shoot asteroids using SPACE.</p>
+
+            <div class="controls">
+                <div>⬅️ ➡️ Move</div>
+                <div>⬆️ ⬇️ Move</div>
+                <div>SPACE 🔫 Shoot</div>
+                <div>P ⏸️ Pause</div>
+            </div>
+
+            <button id="backBtn" class="neon-btn">
+                BACK
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- GAME -->
+    <div id="gameScreen" class="hidden">
+
+        <!-- HUD -->
+        <div class="hud">
+
+            <div class="hud-item">
+                SCORE
+                <strong id="score">0</strong>
+            </div>
+
+            <div class="hud-item">
+                HIGH SCORE
+                <strong id="highScore">0</strong>
+            </div>
+
+            <div class="hud-item">
+                LEVEL
+                <strong id="level">1</strong>
+            </div>
+
+            <div class="hud-item">
+                ❤️
+                <strong id="lives">3</strong>
+            </div>
+
+            <button id="pauseBtn" class="hud-button">
+                ⏸
+            </button>
+
+            <button id="soundBtn" class="hud-button">
+                🔊
+            </button>
+
+        </div>
+
+
+        <!-- CANVAS -->
+        <canvas id="gameCanvas"></canvas>
+
+
+        <!-- MOBILE CONTROLS -->
+        <div class="mobile-controls">
+
+            <div class="direction-controls">
+
+                <button data-key="ArrowUp">▲</button>
+
+                <div>
+                    <button data-key="ArrowLeft">◀</button>
+                    <button data-key="ArrowDown">▼</button>
+                    <button data-key="ArrowRight">▶</button>
+                </div>
+
+            </div>
+
+            <button id="shootMobile" class="shoot-btn">
+                🔥
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PAUSE -->
+    <div id="pauseScreen" class="overlay hidden">
+
+        <div class="glass-card">
+
+            <h1>⏸ PAUSED</h1>
+
+            <button id="resumeBtn" class="neon-btn">
+                ▶ RESUME
+            </button>
+
+            <button id="quitBtn" class="small-btn">
+                QUIT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- GAME OVER -->
+    <div id="gameOverScreen" class="overlay hidden">
+
+        <div class="glass-card">
+
+            <div class="game-over-icon">💥</div>
+
+            <h1>GAME OVER</h1>
+
+            <p class="final-score">
+                SCORE:
+                <strong id="finalScore">0</strong>
+            </p>
+
+            <p id="newHighScore" class="new-high hidden">
+                🏆 NEW HIGH SCORE!
+            </p>
+
+            <button id="restartBtn" class="neon-btn">
+                🔄 PLAY AGAIN
+            </button>
+
+            <button id="menuBtn" class="small-btn">
+                MAIN MENU
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
