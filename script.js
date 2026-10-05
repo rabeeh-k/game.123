@@ -79,6 +79,7 @@ let coinTimer = 0;
 let lastTime = 0;
 
 let soundEnabled = true;
+let audioContext = null;
 
 
 /* ==========================================
@@ -1365,6 +1366,18 @@ backBtn.addEventListener(
    SOUND
 ========================================== */
 
+// Give every button the same subtle UI click, including the menu and mobile
+// controls. Game events below use their own pitches and durations.
+document.addEventListener("click", event => {
+
+    if (event.target.closest("button")) {
+
+        playSound(440, 0.045);
+
+    }
+
+}, true);
+
 soundBtn.addEventListener(
     "click",
     () => {
@@ -1391,11 +1404,16 @@ function playSound(
 
     try {
 
-        const audioContext =
-            new (
+        if (!audioContext) {
+            audioContext = new (
                 window.AudioContext ||
                 window.webkitAudioContext
             )();
+        }
+
+        if (audioContext.state === "suspended") {
+            audioContext.resume();
+        }
 
 
         const oscillator =
